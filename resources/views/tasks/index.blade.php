@@ -3,7 +3,7 @@
 <body>
 
 @foreach ($tasks as $task)
-    <li>{{$task}}</li>
+    <li><a href="/task/{{ $task->id }}">{{ $task->body }}</a></li>
 @endforeach
 
 </body>
