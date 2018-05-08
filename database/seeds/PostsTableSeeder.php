@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class TasksTableSeeder extends Seeder
+class PostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,10 +13,10 @@ class TasksTableSeeder extends Seeder
     public function run()
     {
         for ($i = 1; $i < 6; $i++) {
-            DB::table('tasks')->insert([
+            DB::table('posts')->insert([
               'id' => $i,
-              'body' => 'task '.$i,
-              'completed' => false,
+              'title' => 'Title '.$i,
+              'body' => 'Text '.$i,
               'created_at' => Carbon::now(),
               'updated_at' => Carbon::now(),
             ]);

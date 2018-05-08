@@ -11,29 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    $tasks = [
-      'task 1',
-      'task 2',
-      'task 3',
-    ];
-    return view('welcome', compact('tasks'));
-});
+Route::get('/', 'LaracastsController@index');
 
-Route::get('/tasks', function () {
-    $tasks = App\Task::all();
+/* Laravel from scratch 1-9 lessons */
 
-    return view('tasks.index', compact('tasks'));
-});
+Route::get('/tasksIndex', 'TasksController@index');
+Route::get('/tasks', 'TasksController@all');
+Route::get('/task/{task}', 'TasksController@show');
+Route::get('/tasks/incomplete', 'TasksController@showIncomplete');
 
-Route::get('/task/{task}', function($id) {
-    $task  = App\Task::find($id);
 
-    return view('tasks.show', compact('task'));
-});
+/* Laravel from scratch lessons 10-... (posts) */
 
-Route::get('/tasks/incomplete', function() {
-    $task  = App\Task::incomplete();
-
-    return view('tasks.incomplete', compact('task'));
-});
+Route::get('/postsIndex', 'PostsController@index');
+Route::get('/posts/showBlog', 'PostsController@showBlog');
+Route::get('/posts/create', 'PostsController@create');
+Route::post('/posts', 'PostsController@store');
+Route::get('/posts/{post}', 'PostsController@showPost');
