@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'LaracastsController@index');
+Route::get('/', 'LaracastsController@index')->name('home');
+Route::get('/home', 'LaracastsController@index');
 
 /* Laravel from scratch 1-9 lessons */
 
@@ -28,3 +29,14 @@ Route::get('/posts/showBlog', 'PostsController@showBlog');
 Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}', 'PostsController@showPost');
+
+// add comments
+Route::post('/posts/{post}/comments', 'CommentsController@store');
+
+
+// Rapid login and registration
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+Route::get('/login', 'SessionsController@create');
+Route::post('/login', 'SessionsController@store');
+Route::get('/logout', 'SessionsController@destroy');

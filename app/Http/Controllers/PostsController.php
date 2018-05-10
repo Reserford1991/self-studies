@@ -7,6 +7,11 @@ use App\Post;
 
 class PostsController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth')->except(['index', 'show', 'showBlog']);
+    }
+
     public function index() {
         return view('bootstrap-layouts.container');
     }
@@ -35,15 +40,18 @@ class PostsController extends Controller
         ]);
 
         // create new post using request data
-        // save to dabase
-        Post::create([
-          'title' => request('title'),
-          'body' => request('body')
-        ]);
+        // save to database
 
-        // redirect to post home page
+        auth()->user()->publish(
+          new Post(request(['title', 'body']))
+        );
 
-        return view('posts.index');
+
+
+        // redirect to post posts page
+
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
 
     }
 }
