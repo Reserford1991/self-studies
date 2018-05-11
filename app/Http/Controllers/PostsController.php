@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Repositories\PostsRepository;
+use Carbon\Carbon;
 
 class PostsController extends Controller
 {
@@ -17,10 +19,27 @@ class PostsController extends Controller
     }
 
 
-    public function showBlog() {
+    public function showBlog(PostsRepository $posts) {
 
-        $posts = Post::all();
-        return view('posts.index', compact('posts'));
+//        $posts = Post::latest()
+//          ->filter(request(['month', 'year']))
+//          ->get();
+
+
+        // long way to do
+
+//        $archives = \App\Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
+//          ->groupBy('year', 'month')
+//          ->orderByRaw('min(created_at) desc')
+//          ->get()
+//          ->toArray();
+
+        //short way to do
+        $archives = \App\Post::archives();
+
+        $posts = $posts->all();
+
+        return view('posts.index', compact('posts', 'archives'));
     }
 
     public function showPost($id){

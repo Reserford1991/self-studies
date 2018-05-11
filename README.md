@@ -11,4 +11,10 @@ If previous command did not give any result to database, run following commands:
     7) php artisan db:seed --class=PostsTableSeeder
     8) php artisan db:seed --class=CommentsTableSeeder
     9) php artisan db:seed --class=UsersTableSeeder
-
+    
+For testing.
+1) In .env file change  
+    DB_DATABASE=your-database
+    to 
+    DB_DATABASE=blog-testing
+2) execute command 'php artisan migrate'
