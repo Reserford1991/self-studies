@@ -39,6 +39,8 @@ class PostsController extends Controller
 
         $posts = $posts->all();
 
+//        dd($posts);
+
         return view('posts.index', compact('posts', 'archives'));
     }
 
@@ -65,7 +67,7 @@ class PostsController extends Controller
           new Post(request(['title', 'body']))
         );
 
-
+        session()->flash('message', 'Your post has now been published.');
 
         // redirect to post posts page
 

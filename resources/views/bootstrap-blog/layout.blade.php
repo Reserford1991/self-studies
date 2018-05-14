@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Blog Template for Bootstrap</title>
+    <title>Blog Template</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -29,6 +29,12 @@
 <div class="container">
 
     @include('bootstrap-blog.blog-header')
+
+    @if ($flash = session('message'))
+        <div id="flash-message" class="alert alert-success" role="alert">
+            {{$flash}}
+        </div>
+    @endif
 
     <div class="row">
 
