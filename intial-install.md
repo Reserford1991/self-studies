@@ -10,6 +10,8 @@ If previous command did not give any result to database, run following commands:
 7) php artisan db:seed --class=PostsTableSeeder 
 8) php artisan db:seed --class=CommentsTableSeeder 
 9) php artisan db:seed --class=UsersTableSeeder
+10) php artisan db:seed --class=TagsTableSeeder
+11) php artisan db:seed --class=PostTagTableSeeder
 
 For testing.
 
