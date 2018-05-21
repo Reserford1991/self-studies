@@ -11,7 +11,7 @@ class PostsController extends Controller
 {
 
     public function __construct() {
-        $this->middleware('auth')->except(['index', 'show', 'showBlog']);
+        $this->middleware('auth')->except(['index', 'show', 'showBlog', 'showPost']);
     }
 
     public function index() {
@@ -19,20 +19,7 @@ class PostsController extends Controller
     }
 
 
-    public function showBlog(PostsRepository $posts) {
-
-//        $posts = Post::latest()
-//          ->filter(request(['month', 'year']))
-//          ->get();
-
-
-        // long way to do
-
-//        $archives = \App\Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-//          ->groupBy('year', 'month')
-//          ->orderByRaw('min(created_at) desc')
-//          ->get()
-//          ->toArray();
+    public function showBlog(PostsRepository $posts, \App\Tag $tag = null) {
 
         //short way to do
         $archives = \App\Post::archives();
@@ -53,18 +40,19 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-    public function store() {
+    public function store()
+    {
 
         $this->validate(request(), [
-          'title' => 'required',
-          'body' => 'required'
+            'title' => 'required',
+            'body' => 'required'
         ]);
 
         // create new post using request data
         // save to database
 
         auth()->user()->publish(
-          new Post(request(['title', 'body']))
+            new Post(request(['title', 'body']))
         );
 
         session()->flash('message', 'Your post has now been published.');
@@ -73,6 +61,5 @@ class PostsController extends Controller
 
         $posts = Post::all();
         return view('posts.index', compact('posts'));
-
     }
 }

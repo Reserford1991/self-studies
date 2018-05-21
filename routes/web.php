@@ -21,7 +21,6 @@ Route::get('/tasks', 'TasksController@all');
 Route::get('/task/{task}', 'TasksController@show');
 Route::get('/tasks/incomplete', 'TasksController@showIncomplete');
 
-
 /* Laravel from scratch lessons 10-... (posts) */
 
 Route::get('/postsIndex', 'PostsController@index');
@@ -29,7 +28,7 @@ Route::get('/posts/showBlog', 'PostsController@showBlog');
 Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}', 'PostsController@showPost');
-
+Route::get('/posts/tags/{tag}', 'TagsController@index');
 // add comments
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 
