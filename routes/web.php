@@ -29,9 +29,9 @@ Route::get('/post/{id}/{name}', function ($id, $name) {
     return $id . ' ' . $name;
 });
 
-Route::get('/admin/posts/example', array('as'=>'admin.home',  function () {
+Route::get('/admin/posts/example',  function () {
 
     $url = route('admin.home');
 
     return $url;
-}));
+})->name('admin.home');
