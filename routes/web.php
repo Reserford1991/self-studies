@@ -14,3 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/welcome', function () {
+    return "Welcome";
+});
+
+
+Route::get('/about', function () {
+    return "About page";
+});
+
+Route::get('/post/{id}/{name}', function ($id, $name) {
+    return $id . ' ' . $name;
+});
+
+Route::get('/admin/posts/example', array('as'=>'admin.home',  function () {
+
+    $url = route('admin.home');
+
+    return $url;
+}));
