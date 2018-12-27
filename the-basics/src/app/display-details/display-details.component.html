@@ -1,0 +1,10 @@
+<button class="btn btn-primary"
+        (click)="onClickEvent($event)">Display Details</button>
+<p [ngClass]="status ? '' : 'hide'">Secret Password = tuna</p>
+<p class="statuslog"
+   *ngFor="let statusLog of statusLogs; let i = index"
+   [ngStyle]="{backgroundColor: setColor(i)}"
+   [ngClass]="{textColor: i > 4}"
+>
+  {{ statusLog }}
+</p>
