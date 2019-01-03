@@ -16,20 +16,18 @@ export class GameControlComponent implements OnInit {
   @Output('onStopButton') stopGame = new EventEmitter<{}>();
 
   timeId;
+  counter = 0;
 
   constructor() { }
 
   ngOnInit() {}
 
   onButtonStart() {
-
-    let counter = 0;
-
     this.timeId = setInterval( () => {
         this.startGame.emit({
-          iteration: counter
+          iteration: this.counter+1
         });
-        console.log(counter++);
+      this.counter++;
     }, 1000);
   }
 
