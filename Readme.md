@@ -1,2 +1,2 @@
-This repository dedicated to different self studies during my free time.
-It contains several branches and each of them is about some particular technology. Browse them to see around.
+This code is based on tutorial, which can be found followng this link:
+https://programmingwithmosh.com/react/react-tutorial-beginners/
