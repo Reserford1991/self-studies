@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Counter from './counter';
+import index from "./js/index"
 
 // const element = <h1>Hello World</h1>;
 
