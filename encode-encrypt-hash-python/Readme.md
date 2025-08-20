@@ -1,6 +1,51 @@
 
 
-## encode-encrypt-hash-python
+# encode-encrypt-hash-python
+
+## Theoretical info
+
+There are three types of changing information shape:
+
+- Encoding 
+- Encryption 
+- Hashing
+
+Here is a table for general information about each of this methods:
+
+| Type       | Requires a key | Reversible | Purpose 		  | Example        |
+|------------|----------------|------------|------------------|----------------|
+| Encoding   | No             | Yes        | Data formatting  | Base64, UTF-8  |
+| Encryption | Yes            | Yes        | Confidentiality   | RSA, AES       | 
+| Hashing.   | No             | No         | Data integrity   | SHA256, bcrypt |
+
+So as we can see, Encoding and encryption is quite similar. The only difference is that Encoding uses some widely known algorythm
+
+which can be decoded without a key (base64, zip). Encryption, on the other hand, uses key to encrypt and decrypt information. 
+
+There are two types of encryption:
+
+- Symmetric (SE)
+- Asymmetric (RSA, elliptic curves)
+
+Symmetric encryption uses the same key on both sides to encrypt and decrypt information. This is a huge vulnerability.
+
+So, asymmetric encryption was created. It uses two keys: public and private. They are mathematically connected.
+
+It means that data, encrypted with private key, can be decrypted using public key. 
+
+But public key cannot be used to encrypt data.
+
+The is why before exchanging any data, two computers should exchange public keys in order to transfer data.
+
+As for hashing, it is used to make data volume smaller. For example, 1Tb of data can be transformed into 20Mb.
+
+This method is used to check data integrity (before downloading large files from internet MD5, Git uses SHA1 to check commits)
+
+or quick data search (hash tables),
+
+or store data is secure way (passwords are hashed using scrypt or bcrypt).
+
+## Instructions to run code
 
 This folder is dedicated to my python experiments with encoding, encryption and hashing in python.
 
