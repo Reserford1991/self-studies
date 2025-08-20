@@ -1,0 +1,14 @@
+<div class="col-md-12"
+     [ngStyle]="{backgroundColor: getColor()}"
+     [ngClass]="{online: serverStatus === 'online'}"
+>
+
+  <p>Server info</p>
+
+  <p>Server ID: {{ serverId }}</p>
+
+  <p>Server name: {{ serverName }}</p>
+
+  <p>Server status: {{ getServerStatus() }} </p>
+
+</div>
