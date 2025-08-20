@@ -1,0 +1,285 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Sources list
+    http://css-live.ru/articles/zagadochnye-otstupy-mezhdu-inlajn-blokami.html
+    -->
+
+    <style>
+        ul {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .inline-block li {
+        display: inline-block;
+        width: 19%;
+    }
+</style>
+
+<h2> Inline block </h2>
+<ul class="inline-block">
+    <li>Option 1</li>
+    <li>Option 2</li>
+    <li>Option 3</li>
+    <li>Option 4</li>
+    <li>Option 5</li>
+</ul>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .inline li {
+        display: inline;
+        width: 19%;
+    }
+
+
+    .inline li a {
+        display: inline-block;
+        width: 20%;
+        float: left;
+    }
+</style>
+
+<h2> Inline + A tag</h2>
+<ul class="inline">
+    <li><a href="#">Option 1</a></li>
+    <li><a href="#">Option 2</a></li>
+    <li><a href="#">Option 3</a></li>
+    <li><a href="#">Option 4</a></li>
+    <li><a href="#">Option 5</a></li>
+</ul>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .flex {
+        display: flex;
+    }
+
+    .flex li {
+        width: 20%;
+        list-style: none;
+    }
+</style>
+
+<h2> Flex </h2>
+<ul class="flex">
+    <li>Option 1</li>
+    <li>Option 2</li>
+    <li>Option 3</li>
+    <li>Option 4</li>
+    <li>Option 5</li>
+</ul>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .negative-margin li {
+        display: inline-block;
+        margin-right: 10%;
+        list-style: none;
+    }
+</style>
+
+<h2> Negative margin </h2>
+<ul class="negative-margin">
+    <li>Option 1</li>
+    <li>Option 2</li>
+    <li>Option 3</li>
+    <li>Option 4</li>
+    <li>Option 5</li>
+</ul>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .table-row {
+        display: table;
+    }
+
+    .table-row li {
+        display: table-cell;
+    }
+</style>
+
+<h2> Table row </h2>
+<ul class="table-row">
+    <li>Option 1</li>
+    <li>Option 2</li>
+    <li>Option 3</li>
+    <li>Option 4</li>
+    <li>Option 5</li>
+</ul>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .float-left {
+        display: initial;
+    }
+
+    .float-left li {
+        float: left;
+        overflow: hidden;
+        width: 19%;
+    }
+</style>
+
+<h2> Float left </h2>
+<ul class="float-left">
+    <li>Option 1</li>
+    <li>Option 2</li>
+    <li>Option 3</li>
+    <li>Option 4</li>
+    <li>Option 5</li>
+</ul>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .container {
+        overflow: hidden;
+        width: 100%
+    }
+
+    .box {
+        white-space: nowrap
+    }
+
+    .box li {
+        width: 20%;
+        display: inline-block;
+    }
+</style>
+
+<h2> Overflow hidden + div container </h2>
+<div class="container">
+    <ul class="box">
+        <li>content1</li>
+        <li>content2</li>
+        <li>content3</li>
+        <li>content4</li>
+        <li>content5</li>
+    </ul>
+</div>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .font-size {
+        font-size: 0;
+        /* Лекарство отдельно для Safari */
+        display: table;
+    }
+
+    .font-size li {
+        display : inline-block;
+        width : 20%;
+        /* Возвращаем в нормальное состояние у потомков */
+        font-size: 14px;
+
+    }
+</style>
+
+<h2> Font size </h2>
+    <ul class="font-size">
+        <li>content1</li>
+        <li>content2</li>
+        <li>content3</li>
+        <li>content4</li>
+        <li>content5</li>
+    </ul>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .letter-spacing {
+        font: 14px Verdana, Geneva, sans-serif;
+
+        /* Выставляем родителю значение -.36em */
+        letter-spacing: -.36em;
+        font-size: 0;
+    }
+
+    .letter-spacing li {
+        display: inline-block;
+        width: 20%;
+
+        /* Возвращаем в нормальное состояние у потомков */
+        letter-spacing: normal;
+        font-size: 14px;
+    }
+</style>
+
+<h2> Letter spacing </h2>
+<ul class="letter-spacing">
+    <li>content1</li>
+    <li>content2</li>
+    <li>content3</li>
+    <li>content4</li>
+    <li>content5</li>
+</ul>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .word-spacing {
+        font: 14px Verdana, Geneva, sans-serif;
+
+        /* Выставляем родителю значение -.36em */
+        word-spacing: -.36em;
+
+        /* Лекарство для webkit */
+        display: table;
+    }
+
+    .word-spacing li {
+        display: inline-block;
+        width: 20%;
+
+        /* Возвращаем в нормальное состояние у потомков */
+        word-spacing: normal;
+    }
+</style>
+<h2> Word Spacing </h2>
+<ul class="word-spacing">
+    <li>content1</li>
+    <li>content2</li>
+    <li>content3</li>
+    <li>content4</li>
+    <li>content5</li>
+</ul>
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<style>
+    .no-spaces-1, .no-spaces-2 {
+        font: 14px Verdana, Geneva, sans-serif;
+
+    }
+    .no-spaces-1 li, .no-spaces-2 li {
+        display : inline-block;
+        width : 20%;
+
+        /* эмуляция inline-block для IE6-7*/
+    	display : inline;
+    	zoom : 1;
+    }
+</style>
+<h2> No spaces 1 </h2>
+<ul class="no-spaces-1"><!--
+        --><li>content1</li><!--
+        --><li>content2</li><!--
+        --><li>content3</li><!--
+        --><li>content4</li><!--
+        --><li>content5</li><!--
+--></ul>
+
+<h2>No spaces 2</h2>
+<ul class="no-spaces-2"><li>content1</li><li>content2</li><li>content3</li><li>content4</li><li>content5</li></ul>

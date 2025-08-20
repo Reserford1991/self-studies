@@ -1,0 +1,8 @@
+<label>Username</label>
+<input type="text"
+       [(ngModel)]="userName">
+<button class="btn btn-primary"
+        [disabled]="userName === ''"
+        (click)="onUsernameChange()"
+        >Delete user</button>
+<p> {{ userName }}</p>
