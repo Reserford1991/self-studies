@@ -1,6 +1,5 @@
 import base64
 from urllib.parse import quote
-from base64 import urlsafe_b64decode
 
 
 print('1')
