@@ -2,7 +2,7 @@
 
 ## Progress
 - [x] Session 1 — Language Tour & Type System
-- [ ] Session 2 — Control Flow, Methods & Modern Syntax
+- [x] Session 2 — Control Flow, Methods & Modern Syntax
 - [ ] Session 3 — Object-Oriented C#
 - [ ] Session 4 — Collections, Generics & Nullable Reference Types
 - [ ] Session 5 — LINQ
@@ -30,11 +30,13 @@
 
 ---
 
-### Session 2 — Control Flow, Methods & Modern Syntax (2h)
-- Methods: parameters, `ref`/`out`/`in`, optional and named arguments, overloading, expression-bodied members (`=>`)
-- Control flow: modern `switch` expression and pattern matching (`is`, `when`, property patterns)
-- Exceptions: `try`/`catch`/`finally`, `using` statement and `IDisposable`
-- `namespace`, `using` directives, access modifiers (`public`, `private`, `internal`, `protected`)
+### Session 2 — Control Flow, Methods & Modern Syntax (2h) ✓
+
+**Concepts learned:**
+- **Methods** — arguments pass by value by default. `ref` = read and modify by reference; `out` = method must assign before returning; `in` = read-only reference. Optional parameters have defaults (`int port = 8080`); named arguments use `:` at the call site (`useTls: true`). Overloads share a name but differ in parameter count/types — return type alone does not distinguish overloads. `=>` replaces braces and `return` for single-expression members; computed properties (`public double Area => ...`) recalculate on every read.
+- **`switch` expression & pattern matching** — produces a value, arms tested top to bottom, `_` is the discard/default. Type patterns (`is Circle c`), property patterns (`{ Country: "US" }`), relational patterns (`< 0`, `>= 0 and < 50`), and `when` guards for extra conditions. Non-exhaustive expressions throw at runtime — always include `_`.
+- **Exceptions & resources** — `try`/`catch`/`finally`: `finally` always runs regardless of outcome. `IDisposable` is the interface for types holding external resources; `using` (statement or declaration) guarantees `Dispose()` is called even when exceptions propagate — compiles to `try`/`finally` internally.
+- **`namespace`, `using` directives, access modifiers** — `namespace` groups types by fully-qualified name; `using` directives (top of file) import namespaces for short names. Access modifiers: `public` (everyone), `private` (same class only), `internal` (same assembly), `protected` (class + derived). No modifier defaults to `private` for members and `internal` for top-level types.
 
 **Goal:** Write clean methods and understand idiomatic modern C# syntax.
 
