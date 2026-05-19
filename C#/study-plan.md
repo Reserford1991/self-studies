@@ -3,8 +3,8 @@
 ## Progress
 - [x] Session 1 — Language Tour & Type System
 - [x] Session 2 — Control Flow, Methods & Modern Syntax
-- [ ] Session 3 — Object-Oriented C#
-- [ ] Session 4 — Collections, Generics & Nullable Reference Types
+- [x] Session 3 — Object-Oriented C#
+- [x] Session 4 — Collections, Generics & Nullable Reference Types
 - [ ] Session 5 — LINQ
 - [ ] Session 6 — async/await
 - [ ] Session 7 — Project Structure, DI & Configuration
@@ -46,12 +46,14 @@
 
 ---
 
-### Session 3 — Object-Oriented C# (2h)
-- Classes, constructors, properties (auto-properties, `get`/`set`, `init`-only)
-- `record` types — immutable data carriers with value equality
-- Inheritance, `abstract`, `virtual`/`override`, `sealed`
-- Interfaces — backbone of C# design and dependency injection
-- `static` members and classes
+### Session 3 — Object-Oriented C# (2h) ✓
+
+**Concepts learned:**
+- **Classes** — fields (private `_field` convention), constructors, `this(...)` chaining, primary constructors (C# 12), auto-properties, explicit `get`/`set`, `init`-only setters. The compiler's free parameterless constructor disappears the moment you write any constructor yourself.
+- **`record` types** — reference type with compiler-generated value equality, `ToString()`, and deconstruction. Positional syntax (`record Point(int X, int Y)`) auto-generates init-only properties. `with` expressions produce a modified copy without mutating the original. Use `record` when identical contents means the same thing; use `class` when identity matters.
+- **Inheritance** — `: BaseClass` syntax; `base(...)` to call the base constructor (required when the base has no parameterless constructor). `virtual`/`override` enables polymorphism — the runtime picks the method based on the actual object, not the variable's declared type. Without `virtual`/`override` you get method hiding, not polymorphism. `abstract` class cannot be instantiated; `abstract` method has no body and forces derived classes to override. `sealed` prevents further inheritance or overriding. `protected` is visible to the class and its descendants only.
+- **Interfaces** — a contract with no state and no implementation (by default). A class can inherit one base class but implement any number of interfaces. Decouples callers from concrete types, enabling testability and dependency injection (covered fully in Session 7). Explicit interface implementation (`IFoo.Method()`) hides the member from the class's public surface; accessible only through the interface type.
+- **`static`** — belongs to the type, not any instance; accessed via the type name. Static methods cannot access instance fields or `this`. Static classes cannot be instantiated or inherited. Static constructors run once automatically on first use of the type. Pitfalls: mutable static state is global and hard to test; prefer static for pure functions and constants.
 
 **Goal:** Model a domain with classes, records, and interfaces.
 
@@ -61,11 +63,16 @@
 
 ---
 
-### Session 4 — Collections, Generics & Nullable Reference Types (2h)
-- Core collections: `List<T>`, `Dictionary<TKey,TValue>`, `HashSet<T>`, arrays
-- Generics: generic methods and classes, basic constraints (`where T : ...`)
-- `IEnumerable<T>` and `yield return`
-- Nullable reference types (`string?` vs `string`)
+### Session 4 — Collections, Generics & Nullable Reference Types (2h) ✓
+
+**Concepts learned:**
+- **Arrays** — fixed-size, zero-indexed. Default value for reference type arrays is `null`, not `0`. `int[,]` is a single contiguous object (rectangular); `int[][]` is an array of independent array objects (rows can differ in length). `Length` property (not `Count`).
+- **`List<T>`** — dynamically resizable, backed by an array internally. `Add`, `AddRange`, `Remove(value)`, `RemoveAt(index)`, `Contains`, `IndexOf`, `Count`, `Clear`. Use array when size is fixed and known; use `List<T>` when size changes at runtime.
+- **`Dictionary<TKey,TValue>`** — O(1) average key lookup. Indexer `[]` is an upsert; `Add` throws if key exists. Reading a missing key throws `KeyNotFoundException` — use `TryGetValue` for safe lookup (one operation vs `ContainsKey` + indexer which is two). Iteration order not guaranteed.
+- **`HashSet<T>`** — unique values, O(1) membership tests. `Add` returns `bool` (false if already present — use this to detect duplicates). `UnionWith`, `IntersectWith`, `ExceptWith` mutate the receiver in place.
+- **Generics** — type parameters (`<T>`) give type safety without casting or boxing. Compiler infers `T` from arguments. `default` gives the zero value for any `T`. Constraints: `where T : class`, `where T : struct`, `where T : new()`, `where T : SomeInterface`. `ToString()` needs no constraint — it's on `object`, the base of everything.
+- **`IEnumerable<T>` and `yield return`** — accept `IEnumerable<T>` when you only need forward iteration (works with any sequence). `foreach` compiles to `GetEnumerator`/`MoveNext`/`Current`. `yield return` produces items lazily — the method body runs only when iterated, not when called (deferred execution). Iterating twice re-runs the iterator; call `.ToList()` to materialize if needed.
+- **Nullable Reference Types** — `string` = non-nullable (compiler warns on null assignment); `string?` = explicitly nullable. Compile-time only — `string?` and `string` are the same type at runtime (unlike `int?` which is `Nullable<int>`, a real struct wrapper). `?.` null-conditional (safe member access), `??` null-coalescing (fallback), `??=` assign-if-null. `!` null-forgiving silences warnings but adds no runtime safety — code smell if used to avoid proper null handling. Compiler flow analysis: a null check narrows the type for the rest of the scope.
 
 **Goal:** Comfortably use everyday data structures and understand nullability warnings.
 
