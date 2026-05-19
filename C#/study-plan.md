@@ -3,7 +3,7 @@
 ## Progress
 - [x] Session 1 — Language Tour & Type System
 - [x] Session 2 — Control Flow, Methods & Modern Syntax
-- [ ] Session 3 — Object-Oriented C#
+- [x] Session 3 — Object-Oriented C#
 - [ ] Session 4 — Collections, Generics & Nullable Reference Types
 - [ ] Session 5 — LINQ
 - [ ] Session 6 — async/await
@@ -46,12 +46,14 @@
 
 ---
 
-### Session 3 — Object-Oriented C# (2h)
-- Classes, constructors, properties (auto-properties, `get`/`set`, `init`-only)
-- `record` types — immutable data carriers with value equality
-- Inheritance, `abstract`, `virtual`/`override`, `sealed`
-- Interfaces — backbone of C# design and dependency injection
-- `static` members and classes
+### Session 3 — Object-Oriented C# (2h) ✓
+
+**Concepts learned:**
+- **Classes** — fields (private `_field` convention), constructors, `this(...)` chaining, primary constructors (C# 12), auto-properties, explicit `get`/`set`, `init`-only setters. The compiler's free parameterless constructor disappears the moment you write any constructor yourself.
+- **`record` types** — reference type with compiler-generated value equality, `ToString()`, and deconstruction. Positional syntax (`record Point(int X, int Y)`) auto-generates init-only properties. `with` expressions produce a modified copy without mutating the original. Use `record` when identical contents means the same thing; use `class` when identity matters.
+- **Inheritance** — `: BaseClass` syntax; `base(...)` to call the base constructor (required when the base has no parameterless constructor). `virtual`/`override` enables polymorphism — the runtime picks the method based on the actual object, not the variable's declared type. Without `virtual`/`override` you get method hiding, not polymorphism. `abstract` class cannot be instantiated; `abstract` method has no body and forces derived classes to override. `sealed` prevents further inheritance or overriding. `protected` is visible to the class and its descendants only.
+- **Interfaces** — a contract with no state and no implementation (by default). A class can inherit one base class but implement any number of interfaces. Decouples callers from concrete types, enabling testability and dependency injection (covered fully in Session 7). Explicit interface implementation (`IFoo.Method()`) hides the member from the class's public surface; accessible only through the interface type.
+- **`static`** — belongs to the type, not any instance; accessed via the type name. Static methods cannot access instance fields or `this`. Static classes cannot be instantiated or inherited. Static constructors run once automatically on first use of the type. Pitfalls: mutable static state is global and hard to test; prefer static for pure functions and constants.
 
 **Goal:** Model a domain with classes, records, and interfaces.
 
