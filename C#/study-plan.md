@@ -5,6 +5,7 @@
 - [x] Foundation Session 2 — Control Flow, Methods & Modern Syntax
 - [x] Foundation Session 3 — Object-Oriented C#
 - [x] Foundation Session 4 — Collections, Generics & Nullable Reference Types
+- [x] Theory Sprint Block 0 — Orientation and Prerequisite Refresh
 - [ ] Theory Sprint Block 1 — Backend C# Mental Model, ASP.NET Core, DI, Middleware
 - [ ] Theory Sprint Block 2 — EF Core, LINQ-for-Data, Migrations, Transactions
 - [ ] Theory Sprint Block 3 — Mediator Pattern, CQRS-style Flow, Validation
@@ -107,15 +108,15 @@ This sprint is for reading and mental models only. Do not stop to build a projec
 
 ---
 
-## Block 0 — Orientation and Prerequisite Refresh (20-30 min)
+## Block 0 — Orientation and Prerequisite Refresh ✓
 
-**Read for:** the minimum language/runtime concepts needed for backend theory.
+**Learned:** the minimum language/runtime vocabulary needed for backend theory.
 
-**Topics:**
-- `Task` / `Task<T>` and why web/data APIs are usually asynchronous
-- LINQ basics: `Where`, `Select`, `FirstOrDefault`, `Any`, `ToList`
-- Dependency Injection vocabulary: service, implementation, container, lifetime
-- Configuration and logging vocabulary
+**Concepts learned:**
+- **`Task` / `Task<T>` and async** — `Task<T>` represents asynchronous work that may later produce a `T`; `await` gets the result without blocking the whole server thread. Backend APIs use async heavily because requests often wait on database calls, HTTP calls, files, queues, or caches.
+- **LINQ basics** — LINQ is a common C# query style for sequences/data. `Where` filters, `Select` transforms, `FirstOrDefault` gets one item or a default value, `Any` asks whether at least one item matches, and `ToList` materializes a result. With collections, LINQ runs in memory; with EF Core, many LINQ expressions are translated into SQL.
+- **Dependency Injection vocabulary** — DI lets classes receive dependencies from outside instead of constructing them directly. This reduces coupling, improves testability, and lets ASP.NET Core manage object creation and lifetimes. Key terms: service, implementation, interface/contract, container, singleton, scoped, transient.
+- **Configuration and logging vocabulary** — configuration stores environment-specific values outside source code, such as connection strings, API keys, feature flags, and logging levels. Logging records structured messages about what the app did, commonly using levels such as Information, Warning, Error, and Critical.
 
 **Resources:**
 - [Asynchronous programming with async and await](https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/)
